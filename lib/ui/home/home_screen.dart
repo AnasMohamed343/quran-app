@@ -27,46 +27,49 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage('assets/images/main_bg.png'))
-      ),
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(ThemeMode == ThemeMode.light
+                  ? 'assets/images/main_bg.png'
+                  : 'assets/images/main-bg-dark.png'))),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Islami',
+          title: Text(
+            'Islami',
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedIndex,//indexبيقولي انا واقف علي انهو
-          onTap: (index) {//=> give me the index that i taped on it
-            selectedIndex = index;
-            setState(() {// setState() => tell the widget to rebuild
-              
-            });
-          },
-          backgroundColor: Color(0xFFB7935F),
-          items: [
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xFFB7935F),
-            icon: ImageIcon(AssetImage('assets/images/quran.png')),
-          label: 'Quran'),
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xFFB7935F),
-            icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
-          label: 'Ahadeth'),
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xFFB7935F),
-            icon: ImageIcon(AssetImage('assets/images/sebha.png')),
-          label: 'Sebha'),
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xFFB7935F),
-            icon: ImageIcon(AssetImage('assets/images/radio.png')),
-          label: 'Radio'),
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xFFB7935F),
-            icon: Icon(Icons.settings),
-          label: 'Settings'),
-        ]),
+            currentIndex: selectedIndex, //indexبيقولي انا واقف علي انهو
+            onTap: (index) {
+              //=> give me the index that i taped on it
+              selectedIndex = index;
+              setState(() {
+                // setState() => tell the widget to rebuild
+              });
+            },
+            backgroundColor: Theme.of(context).primaryColor,
+            items: [
+              BottomNavigationBarItem(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  icon: ImageIcon(AssetImage('assets/images/quran.png')),
+                  label: 'Quran'),
+              BottomNavigationBarItem(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
+                  label: 'Ahadeth'),
+              BottomNavigationBarItem(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  icon: ImageIcon(AssetImage('assets/images/sebha.png')),
+                  label: 'Sebha'),
+              BottomNavigationBarItem(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  icon: ImageIcon(AssetImage('assets/images/radio.png')),
+                  label: 'Radio'),
+              BottomNavigationBarItem(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  icon: Icon(Icons.settings),
+                  label: 'Settings'),
+            ]),
         body: tabs[selectedIndex],
       ),
     );

@@ -29,7 +29,9 @@ class _SplashState extends State<Splash> {
             image: DecorationImage(
               alignment: Alignment.center,
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/splash.png'),
+              image: AssetImage(ThemeMode == ThemeMode.light
+                  ? 'assets/images/splash.png'
+                  : 'assets/images/splash-dark.png'),
             ),
           ),
         ),

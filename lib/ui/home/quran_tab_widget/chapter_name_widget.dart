@@ -22,13 +22,8 @@ class ChapterTitleWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 8),
         alignment: Alignment.center,
-        child: Text(
-          chapterTitle,
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        child:
+            Text(chapterTitle, style: Theme.of(context).textTheme.bodyMedium),
       ),
     );
   }

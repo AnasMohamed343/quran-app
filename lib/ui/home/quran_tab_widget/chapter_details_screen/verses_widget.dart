@@ -8,15 +8,10 @@ class VersesWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(5),
       alignment: Alignment.center,
-      child: Text(
-        verse,
-        textAlign: TextAlign.center,
-        textDirection: TextDirection.rtl,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+      child: Text(verse,
+          textAlign: TextAlign.center,
+          textDirection: TextDirection.rtl,
+          style: Theme.of(context).textTheme.displaySmall),
     );
   }
 }

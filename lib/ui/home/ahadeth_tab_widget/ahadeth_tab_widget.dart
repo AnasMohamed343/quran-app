@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -30,13 +29,10 @@ class _AhadethTabWidgetState extends State<AhadethTabWidget> {
               decoration: BoxDecoration(
                   border: Border.symmetric(
                       horizontal: BorderSide(
-                          color: Theme.of(context).primaryColor, width: 2))),
+                          color: Theme.of(context).dividerColor, width: 2))),
               child: Text(
                 'Ahadeth',
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                style: Theme.of(context).textTheme.titleMedium,
               )),
           Expanded(
               flex: 3,
@@ -48,7 +44,7 @@ class _AhadethTabWidgetState extends State<AhadethTabWidget> {
                       itemBuilder: (context, index) =>
                           HadethTitleWidget(hadethItem: allAhadeth[index]),
                       separatorBuilder: (context, index) => Container(
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).dividerColor,
                             width: double.infinity,
                             height: 2,
                             margin: EdgeInsets.symmetric(horizontal: 66),

@@ -14,8 +14,8 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
     return Container(
       margin: EdgeInsets.only(left: 0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             flex: 1,
@@ -24,7 +24,7 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
               children: [
                 Image.asset('assets/images/seb7a-icon.png'),
                 Container(
-                    margin: EdgeInsets.only(bottom: 70),
+                    //margin: EdgeInsets.only(bottom: 70),
                     alignment: Alignment.topCenter,
                     child: Image.asset('assets/images/head of seb7a.png')),
               ],
@@ -34,7 +34,7 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
           //   height: 10,
           // ),
           Container(
-            margin: EdgeInsets.only(top: 20, bottom: 10),
+            margin: EdgeInsets.only(top: 32, bottom: 10),
             child: Text(
               'عدد التسبيحات',
               style: TextStyle(fontSize: 25, color: Colors.white),
@@ -73,7 +73,7 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
               width: 137,
               height: 51,
               padding: EdgeInsets.only(top: 5),
-              margin: EdgeInsets.only(top: 15, bottom: 50),
+              margin: EdgeInsets.only(top: 15, bottom: 90),
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(25),

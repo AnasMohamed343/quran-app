@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class ThemeBottomSheet extends StatefulWidget {
   const ThemeBottomSheet({Key? key}) : super(key: key);
@@ -10,16 +12,29 @@ class ThemeBottomSheet extends StatefulWidget {
 class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of<SettingsProvider>(context);
     return Container(
       padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          getSelectedItem('Light'),
+          InkWell(
+              onTap: () {
+                provider.changeApplicationTheme(ThemeMode.light);
+              },
+              child: provider.currentTheme == ThemeMode.light
+                  ? getSelectedItem('Light')
+                  : getUnSelectedItem('Light')),
           SizedBox(
             height: 15,
           ),
-          getUnSelectedItem('Dark'),
+          InkWell(
+              onTap: () {
+                provider.changeApplicationTheme(ThemeMode.dark);
+              },
+              child: provider.currentTheme == ThemeMode.dark
+                  ? getSelectedItem('Dark')
+                  : getUnSelectedItem('Dark')),
         ],
       ),
     );
@@ -31,12 +46,12 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
       children: [
         Text(
           selectedTheme,
-          style: Theme.of(context).textTheme.labelMedium,
+          style: Theme.of(context).textTheme.labelSmall,
         ),
         Icon(
           size: 30,
           Icons.check,
-          color: Theme.of(context).iconTheme.color,
+          color: Theme.of(context).indicatorColor,
         )
       ],
     );

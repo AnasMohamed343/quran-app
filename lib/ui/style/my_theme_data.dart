@@ -40,6 +40,7 @@ class MyThemeData {
       backgroundColor: lightPrimaryColor,
     ),
     iconTheme: IconThemeData(color: lightPrimaryColor, size: 30),
+    indicatorColor: Colors.white,
     textTheme: TextTheme(
       titleMedium: TextStyle(
         color: Colors.black,
@@ -62,6 +63,11 @@ class MyThemeData {
       labelLarge: TextStyle(
         color: Colors.black,
         fontSize: 25,
+        fontWeight: FontWeight.bold,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 27,
+        color: Colors.white,
         fontWeight: FontWeight.bold,
       ),
     ),
@@ -113,6 +119,7 @@ class MyThemeData {
       backgroundColor: darkPrimaryColor,
     ),
     iconTheme: IconThemeData(color: yelowColor, size: 30),
+    indicatorColor: yelowColor,
     textTheme: TextTheme(
       titleMedium: TextStyle(
         color: Colors.white,
@@ -133,6 +140,11 @@ class MyThemeData {
       labelLarge: TextStyle(
         color: Colors.white,
         fontSize: 25,
+        fontWeight: FontWeight.bold,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 27,
+        color: yelowColor,
         fontWeight: FontWeight.bold,
       ),
     ),

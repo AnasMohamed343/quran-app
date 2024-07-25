@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTabWidget extends StatefulWidget {
   @override
@@ -36,8 +37,8 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
           Container(
             margin: EdgeInsets.only(top: 32, bottom: 10),
             child: Text(
-              'عدد التسبيحات',
-              style: TextStyle(fontSize: 25, color: Colors.white),
+              AppLocalizations.of(context)!.taspehat,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           // SizedBox(

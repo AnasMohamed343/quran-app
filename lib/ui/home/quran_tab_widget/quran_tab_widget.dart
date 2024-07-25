@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/ui/home/quran_tab_widget/chapter_name_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranTabWidget extends StatelessWidget {
   List<String> suraNames = [
@@ -131,36 +132,33 @@ class QuranTabWidget extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 64),
             width: double.infinity,
             height: 2,
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).dividerColor,
           ),
           Container(
             padding: EdgeInsets.symmetric(vertical: 8),
-            child: Text(
-              'Chapter Name',
-              style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
+            child: Text(AppLocalizations.of(context)!.chapter_name,
+                style: Theme.of(context).textTheme.titleMedium),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 64),
             width: double.infinity,
             height: 2,
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).dividerColor,
           ),
           Expanded(
             // فالحل نخليها جوه ويدجيت زي
             flex: 3,
             child: ListView.separated(
                 //متنفعش جوه كولومن
-                itemBuilder: (context, index) =>
-                    ChapterTitleWidget(chapterTitle: suraNames[index], index: index,),
+                itemBuilder: (context, index) => ChapterTitleWidget(
+                      chapterTitle: suraNames[index],
+                      index: index,
+                    ),
                 separatorBuilder: (context, index) => Container(
                       margin: EdgeInsets.symmetric(horizontal: 64),
                       width: double.infinity,
                       height: 2,
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Theme.of(context).dividerColor,
                     ),
                 itemCount: suraNames.length),
           )

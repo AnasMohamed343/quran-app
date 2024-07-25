@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/ui/home/quran_tab_widget/chapter_details_screen/verses_widget.dart';
 import 'package:islami_app/ui/home/quran_tab_widget/chapter_name_widget.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../providers/settings_provider.dart';
 
 class ChapterDetailsScreen extends StatefulWidget {
   static const String routeName = 'Chapter-Details';
@@ -15,6 +18,7 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of<SettingsProvider>(context);
     ChapterDetailsArgs args = ModalRoute.of(context)?.settings.arguments
         as ChapterDetailsArgs; // down cast the arguments to the correct type
 
@@ -24,22 +28,28 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
       decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/main_bg.png'))),
+              image: AssetImage(provider.getBackgroundImage()))),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(args.chapterTitle),
+          title: Text(
+            args.chapterTitle,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
         body: verses.isEmpty
             ? Center(child: CircularProgressIndicator())
-            : ListView.separated(
-                itemBuilder: (context, index) =>
-                    VersesWidget(verse: verses[index]),
-                separatorBuilder: (context, index) => Container(
-                      color: Theme.of(context).primaryColor,
-                      width: double.infinity,
-                      height: 1,
-                    ),
-                itemCount: verses.length),
+            : Card(
+                color: Theme.of(context).cardTheme.color,
+                child: ListView.separated(
+                    itemBuilder: (context, index) =>
+                        VersesWidget(verse: verses[index]),
+                    separatorBuilder: (context, index) => Container(
+                          color: Theme.of(context).dividerColor,
+                          width: double.infinity,
+                          height: 1,
+                        ),
+                    itemCount: verses.length),
+              ),
       ),
     );
   }
